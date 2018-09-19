@@ -1,3 +1,5 @@
 language: minimal
+env:
+  MYVAR=old
 script:
-  - echo "hello world"
+  - echo "$MYVAR"
