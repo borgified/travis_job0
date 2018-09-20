@@ -3,5 +3,5 @@ env:
   MYVAR=old_var_in_job0
 script:
   - echo "$MYVAR"
-  - for i in `env | grep ^TRAVIS`; do echo $i; done
+  - printenv | grep ^TRAVIS_
     #  - ./run.sh
