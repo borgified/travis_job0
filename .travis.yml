@@ -4,4 +4,4 @@ env:
 script:
   - echo "$MYVAR"
   - printenv | grep ^TRAVIS_
-    #  - ./run.sh
+  - ./run.sh
