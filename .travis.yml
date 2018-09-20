@@ -1,5 +1,5 @@
 language: minimal
 env:
-  MYVAR=old
+  MYVAR=old_var_in_job0
 script:
   - echo "$MYVAR"
