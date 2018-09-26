@@ -2,7 +2,7 @@
 
 set -ex
 
-read -r -d '' body <<EOF
+body="
 {
   "request": { 
     "message": "Override the commit message: this is an api request",
@@ -15,8 +15,7 @@ read -r -d '' body <<EOF
       }
     }
   }
-}
-EOF
+}"
 
 echo $body
 
