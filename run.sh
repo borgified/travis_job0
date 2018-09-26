@@ -2,7 +2,7 @@
 
 set -ex
 
-body="
+body=$(cat <<EOF
 {
   "request": { 
     "message": "Override the commit message: this is an api request",
@@ -15,7 +15,9 @@ body="
       }
     }
   }
-}"
+}
+EOF
+)
 
 echo $body
 
