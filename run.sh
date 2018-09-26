@@ -10,8 +10,8 @@ read -r -d '' body <<EOF
     "config": { 
       "env": {
         "MYVAR": "var_from_job_0",
-        "UPSTREAM_SHA": $TRAVIS_PULL_REQUEST_SHA,
-        "UPSTREAM_REPO": $TRAVIS_PULL_REQUEST_SLUG
+        "UPSTREAM_SHA": "$TRAVIS_PULL_REQUEST_SHA",
+        "UPSTREAM_REPO": "$TRAVIS_PULL_REQUEST_SLUG"
       }
     }
   }
