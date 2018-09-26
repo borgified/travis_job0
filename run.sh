@@ -18,6 +18,7 @@ read -r -d '' body <<EOF
 }
 EOF
 
+echo $body
 
 REPO='https://api.travis-ci.com/repo/borgified%2Ftravis_job1/requests'
 
