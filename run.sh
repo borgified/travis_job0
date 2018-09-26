@@ -2,7 +2,23 @@
 
 set -e
 
-body='{ "request": { "message": "Override the commit message: this is an api request", "branch":"master", "config": { "env": "MYVAR=var_from_job_0" } }}'
+read -r -d '' body <<EOF
+{
+  "request": { 
+    "message": "Override the commit message: this is an api request",
+    "branch":"master", 
+    "config": { 
+      "env": {
+        "MYVAR": "var_from_job_0",
+        "UPSTREAM_SHA": $TRAVIS_PULL_REQUEST_SHA,
+        "UPSTREAM_REPO": $TRAVIS_PULL_REQUEST_SLUG
+      }
+    }
+  }
+}
+EOF
+
+
 REPO='https://api.travis-ci.com/repo/borgified%2Ftravis_job1/requests'
 
 
