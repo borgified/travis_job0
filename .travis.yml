@@ -1,10 +1,8 @@
 language: minimal
 env:
 
-before_script:
+script:
   - ./run1.sh
   - ./run2.sh
-
-script:
   - echo "$MYVAR"
   - printenv | grep ^TRAVIS_
