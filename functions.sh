@@ -16,7 +16,7 @@ function wait_for {
   local final_result=$(curl -s -H "Travis-API-Version: 3" -H "User-Agent: API Explorer" -H "Authorization: token $TOKEN" https://api.travis-ci.com/repo/$repo_slug/request/$id)
   local status=$(echo $final_result | jq -r .builds[0].state)
 
-  return $status
+  echo $status
 
 }
 
@@ -50,5 +50,5 @@ local results=$(curl -s -X POST \
   -d "$body" \
   $REPO)
 
-return $(echo $results | jq .id)
+echo $results | jq .id
 }
