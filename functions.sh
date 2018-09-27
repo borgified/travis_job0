@@ -2,8 +2,8 @@
 
 function wait_for {
   #poll every 5 seconds until upstream job is finished
-  local repo_slug = $1
-  local id = $2
+  local repo_slug=$1
+  local id=$2
 
   while [ "$state" != "finished" ]; do
     local result=$(curl -s -H "Travis-API-Version: 3" -H "User-Agent: API Explorer" -H "Authorization: token $TOKEN" https://api.travis-ci.com/repo/$repo_slug/request/$id)
@@ -22,7 +22,7 @@ function wait_for {
 
 function trigger_job {
 
-  local repo_slug = $1
+  local repo_slug=$1
 
   local body=$(cat <<EOF
 {
