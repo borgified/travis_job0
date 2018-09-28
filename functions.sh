@@ -40,6 +40,8 @@ function trigger_job {
 EOF
 )
 
+echo $body
+
 local REPO="https://api.travis-ci.com/repo/$repo_slug/requests"
 
 local results=$(curl -s -X POST \
@@ -49,6 +51,8 @@ local results=$(curl -s -X POST \
   -H "Authorization: token $TOKEN" \
   -d "$body" \
   $REPO)
+
+echo $results
 
 echo $results | jq .id
 }
