@@ -1,7 +1,8 @@
 language: minimal
 env:
-  MYVAR=old_var_in_job0
+
 script:
+  - ./run1.sh
+  - ./run2.sh
   - echo "$MYVAR"
   - printenv | grep ^TRAVIS_
-  - ./run.sh
