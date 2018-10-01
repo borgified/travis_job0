@@ -17,7 +17,7 @@ function trigger_job {
         "UPSTREAM_REPO": "$TRAVIS_PULL_REQUEST_SLUG"
       },
       "before_script": "STATE=pending ./update_build_status.sh",
-      "script": ["./sleep.sh", "echo $DEFAULT_SETTING", "echo $SPECIAL_SETTING"],
+      "script": ["./sleep.sh", "echo \$DEFAULT_SETTING", "echo \$SPECIAL_SETTING"],
       "after_success": "STATE=success ./update_build_status.sh",
       "after_failure": "STATE=failure ./update_build_status.sh"
     }
