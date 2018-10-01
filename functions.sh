@@ -8,8 +8,9 @@ function trigger_job {
 {
   "request": { 
     "message": "Override the commit message: this is an api request",
-    "branch":"master", 
-    "config": { 
+    "branch": "master", 
+    "config": {
+      "merge_mode": "deep_merge",
       "env": {
         "UPSTREAM_SHA": "$TRAVIS_PULL_REQUEST_SHA",
         "UPSTREAM_REPO": "$TRAVIS_PULL_REQUEST_SLUG"
