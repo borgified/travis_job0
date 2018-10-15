@@ -1,8 +1,16 @@
 language: minimal
 env:
 
-script:
-  - ./run1.sh
-  - ./run2.sh
-  - echo "$MYVAR"
-  - printenv | grep ^TRAVIS_
+jobs:
+  include:
+    - stage: test
+      script:
+        - ./run1.sh
+        - ./run2.sh
+        - echo "$MYVAR"
+        - printenv | grep ^TRAVIS_
+     -
+       script:
+         - ./another.sh
+     - stage: deploy
+       script: ./deploy.sh
