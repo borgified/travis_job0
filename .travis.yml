@@ -15,7 +15,7 @@ jobs:
       script: ./deploy.sh
     - stage: testing if
       if: env(TEST) IS present
-      env: HELLO=env(TEST)
+      env: HELLO=$TEST
       script:
         - echo "HELLO found $HELLO"
 #    - &test-staging
