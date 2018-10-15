@@ -16,7 +16,7 @@ jobs:
     - stage: testing if
       if: env(TEST) = 1
       script:
-        - echo "TEST found: $TEST"
+        - echo "TEST found $TEST"
 #    - &test-staging
 #      stage: test staging
 #      rvm: 2.3
