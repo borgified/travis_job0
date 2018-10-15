@@ -2,6 +2,9 @@ rvm:
   - 2.2
   - 2.3
 
+env:
+  TEST=1
+
 script: echo "script"
 
 jobs:
@@ -10,12 +13,15 @@ jobs:
       rvm: 2.3
       install: skip # bundle install is not required
       script: ./deploy.sh
-    - &test-staging
-      stage: test staging
-      rvm: 2.3
-      install: skip
-      script: ./test-staging.sh one
-    - <<: *test-staging
-      script: ./test-staging.sh two
-    - <<: *test-staging
-      script: ./test-staging.sh three
+    - stage: testing if
+      if: env(TEST) IS present
+      script: echo "TEST found: $TEST"
+#    - &test-staging
+#      stage: test staging
+#      rvm: 2.3
+#      install: skip
+#      script: ./test-staging.sh one
+#    - <<: *test-staging
+#      script: ./test-staging.sh two
+#    - <<: *test-staging
+#      script: ./test-staging.sh three
