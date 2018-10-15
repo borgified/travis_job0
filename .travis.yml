@@ -14,7 +14,7 @@ jobs:
       install: skip # bundle install is not required
       script: ./deploy.sh
     - stage: testing if
-      if: env(TEST) = 1
+      if: env(TEST) IS present
       script:
         - echo "TEST found $TEST"
 #    - &test-staging
