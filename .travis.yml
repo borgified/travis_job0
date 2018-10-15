@@ -16,7 +16,7 @@ jobs:
     - stage: testing if
       if: env(TEST) IS present
       env:
-        HELLO: env(TEST)
+        HELLO: hello
       script:
         - echo "HELLO found $HELLO"
 #    - &test-staging
