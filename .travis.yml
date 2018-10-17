@@ -1,8 +1,23 @@
 language: minimal
-env:
 
-script:
-  - ./run1.sh
-  - ./run2.sh
-  - echo "$MYVAR"
-  - printenv | grep ^TRAVIS_
+env:
+  SDK: ruby
+
+jobs:
+  include:
+    - stage: ruby
+      if: env(SDK) = ruby
+      script: echo "hi" && ./sdk.sh
+#    - stage: python
+#      if: env(python) = python
+#      script: echo "hi" && ./sdk.sh
+
+#    - &test-staging
+#      stage: test staging
+#      rvm: 2.3
+#      install: skip
+#      script: ./test-staging.sh one
+#    - <<: *test-staging
+#      script: ./test-staging.sh two
+#    - <<: *test-staging
+#      script: ./test-staging.sh three
