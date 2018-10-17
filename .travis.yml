@@ -23,6 +23,11 @@ jobs:
           if [ -z "$TRAVIS_BRANCH" ]; then
             echo $TRAVIS_BRANCH
           fi
+    - stage: testing
+      script: echo "test 1"
+    - stage: testing
+      script: echo "test 2"
+
 #    - &test-staging
 #      stage: test staging
 #      rvm: 2.3
