@@ -1,32 +1,16 @@
-rvm:
-  - 2.2
-  - 2.3
+language: minimal
 
 env:
-  TEST=1
-
-script: echo "script"
+  SDK: ruby
 
 jobs:
   include:
-    - stage: deploy to staging
-      rvm: 2.3
-      install: skip # bundle install is not required
-      script: ./deploy.sh
-    - stage: testing if
-      if: env(TEST) IS present
-      script:
-        - HELLO=$TEST && echo "HELLO found $HELLO"
-    - stage: bash logic
-      script:
-        - |
-          if [ -z "$TRAVIS_BRANCH" ]; then
-            echo $TRAVIS_BRANCH
-          fi
-    - stage: testing
-      script: echo "test 1"
-    - stage: testing
-      script: echo "test 2"
+    - stage: ruby
+      if: env(SDK) = ruby
+      script: ./sdk.sh
+    - stage: python
+      if: env(python) = python
+      script: ./sdk.sh
 
 #    - &test-staging
 #      stage: test staging
