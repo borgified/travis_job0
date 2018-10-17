@@ -8,9 +8,9 @@ jobs:
     - stage: ruby
       if: env(SDK) = ruby
       script: echo "hi" && ./sdk.sh
-    - stage: python
-      if: env(python) = python
-      script: echo "hi" && ./sdk.sh
+#    - stage: python
+#      if: env(python) = python
+#      script: echo "hi" && ./sdk.sh
 
 #    - &test-staging
 #      stage: test staging
